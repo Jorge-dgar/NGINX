@@ -1,8 +1,3 @@
-# NGINX
-Aquí tienes el README.md estructurado y redactado como si describieras en primera persona los pasos realizados en la práctica:
-
----
-
 # Práctica: Instalación y Configuración de Servidor Web Nginx
 
 Este documento describe el proceso paso a paso que seguí para instalar, configurar y verificar el funcionamiento de un servidor web Nginx en Debian, así como para configurar FTPS y transferir archivos al servidor. La web configurada tiene el nombre `webNginx2` y la IP es `192.168.56.10`.
