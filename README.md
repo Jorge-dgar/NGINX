@@ -114,3 +114,20 @@ sudo systemctl restart vsftpd
 ### 7. Tarea Final
 
 Para la tarea final, configuré un nuevo dominio en el servidor con el mismo proceso, usando FTPES para transferir los archivos y configurando permisos adecuados en `/var/www/`.
+
+
+CUESTIONES FINALES
+
+Aquí tienes las respuestas a las preguntas sobre la configuración de Nginx:
+
+### 1. ¿Qué pasa si no hago el link simbólico entre `sites-available` y `sites-enabled` de mi sitio web?
+
+Si no creas el enlace simbólico entre el archivo de configuración de tu sitio web en `sites-available` y la carpeta `sites-enabled`, Nginx no cargará la configuración de tu sitio y, por lo tanto, **no estará habilitado ni accesible** desde el navegador. La carpeta `sites-enabled` es la que Nginx revisa para identificar los sitios que debe servir. 
+
+En resumen, sin este enlace simbólico, Nginx no reconocerá ni servirá el sitio, y cuando intentes acceder a él, verás un error de "sitio no encontrado" o similar.
+
+### 2. ¿Qué pasa si no le doy los permisos adecuados a `/var/www/nombre_web`?
+
+Si no configuras los permisos adecuados para `/var/www/nombre_web`, Nginx podría no tener los permisos necesarios para acceder y servir los archivos del sitio. Esto puede causar **errores de acceso no autorizado** al intentar visitar la página, ya que el usuario `www-data` (el usuario bajo el cual se ejecuta Nginx) no podrá leer los archivos.
+
+Para evitar estos problemas, el usuario y grupo de los archivos deberían ser `www-data`, y los permisos recomendados suelen ser `755` para directorios y `644` para archivos, lo que permite que el servidor acceda sin comprometer la seguridad.
